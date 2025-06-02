@@ -39,12 +39,12 @@
     <div class="content">
         <div class="aside">
             <div class="sidebar">
-                <a href="{{ route('overview') }}" class="active">
-                    <i class="fas fa-th-large"></i>
+            <a href="{{ route('overview') }}">
+                <i class="fa-solid fa-house"></i>
                     <h3>overview</h3>
                 </a>
                 <a href="{{ route('department.index') }}">
-                    <i class="fa-solid fa-table-cells-large"></i>
+                <i class="fa-solid fa-database"></i>
                     <h3>departments</h3>
                 </a>
                 <a href="{{ route('courses.index') }}">
@@ -58,6 +58,11 @@
                 <a href="{{ route('instructor') }}">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <h3>instructor</h3>
+                </a>
+
+                <a href="{{ route('tables') }}">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>tables</h3>
                 </a>
 
                 <a href="{{ route('attendance.index') }}">

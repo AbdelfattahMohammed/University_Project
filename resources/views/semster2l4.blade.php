@@ -12,21 +12,25 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-  <title>Level 1 Subjects</title>
+  <title>Level 4 ubjects</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+body {
+    scroll-behavior: smooth;
+}
 
-    body {
-      background-color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 0px;
-      margin: 0;
-    }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --maincolor: #2196f3;
+    --maincolor-alt: #1787e0;
+    --main-padding: 100px;
+    --main-transition-dur: 0.3s;
+    --section-color: #ececec;
+}
 
     .subject {
       background-color: lightgray;
@@ -79,25 +83,23 @@
     }
 
     .main-header .form input {
-      border-radius: 20px;
-      width: 300px;
-      height: 30px;
-      padding: 8px;
-      border: 1px solid black;
-    }
+    width: 300px;
+    height: 30px;
+    padding: 8px;
+    border: 1px solid black;
+    outline: none;
+}
 
-    .main-header .form button {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      padding: 8px 20px;
-      transform: translateY(-50%);
-      background-color: #4497f1;
-      border: none;
-      width: 35px;
-      border-radius: 45%;
-      height: 100%;
-    }
+.main-header .form button {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--maincolor);
+    width: 35px;
+    height: 100%;
+    border: 1px solid black;
+}
 
     .main-header .form button:hover {
       cursor: pointer;
@@ -161,18 +163,15 @@
 
     .sidebar a i {
       margin-right: 10px;
-      width: 20px;
-      /* Consistent icon size */
-      text-align: center;
-      /* Center icons */
-      margin-top: -16px;
+    width: 20px;
+    text-align: center;
     }
 
-.sidebar h3 {
+/* .sidebar h3 {
     margin-top: -8px;
     font-size: 18px;
     font-weight: bold;
-}
+} */
 
     .holder {
       /* flex-grow: 1; */
@@ -197,15 +196,14 @@
 
 
 
-    button {
-      padding: 10px 20px;
-      background-color: #4caf50;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-
-    }
+    .holder .header button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
   </style>
 </head>
 
@@ -237,14 +235,14 @@
   <div class="main-content">
     <div class="aside">
         <div class="sidebar">
-            <a href="{{ route('overview') }}">
-                <i class="fas fa-th-large"></i>
-                <h3>overview</h3>
-            </a>
-            <a href="{{ route('department.index') }}">
-                <i class="fa-solid fa-table-cells-large"></i>
-                <h3>departments</h3>
-            </a>
+        <a href="{{ route('overview') }}">
+                <i class="fa-solid fa-house"></i>
+                    <h3>overview</h3>
+                </a>
+                <a href="{{ route('department.index') }}">
+                <i class="fa-solid fa-database"></i>
+                    <h3>departments</h3>
+                </a>
             <a href="{{ route('courses.index') }}" class="active">
                 <i class="fas fa-book-open"></i>
                 <h3>Courses</h3>
@@ -257,6 +255,11 @@
                 <i class="fas fa-chalkboard-teacher"></i>
                 <h3>instructor</h3>
             </a>
+
+            <a href="{{ route('tables') }}">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>tables</h3>
+                </a>
 
             <a href="{{ route('attendance.index') }}">
                 <i class="fa-solid fa-clipboard-user"></i>
@@ -275,7 +278,7 @@
 
     <div class="holder">
       <div class="header">
-        <h1 style="font-weight: bold; font-size: 25px;">Courses</h1>
+        <h1>Courses</h1>
         <button class="b" onclick="history.back()">Back</button>
       </div>
 

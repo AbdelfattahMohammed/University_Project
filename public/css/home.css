@@ -28,10 +28,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* margin-bottom: 10px; */
-    /* padding-bottom:10px; */
     overflow: hidden;
-
 }
 
 .header .logo {
@@ -65,11 +62,11 @@ body {
 }
 
 .header .form input {
-    border-radius: 20px;
     width: 300px;
     height: 30px;
     padding: 8px;
     border: 1px solid black;
+    outline: none;
 }
 
 .header .form button {
@@ -77,10 +74,10 @@ body {
     right: 0px;
     top: 50%;
     transform: translateY(-50%);
-    border-radius: 45%;
-    background-color: #4497f1;
+    background-color: var(--maincolor);
     width: 35px;
     height: 100%;
+    border: 1px solid black;
 }
 
 .header .form button:hover {
@@ -173,15 +170,35 @@ aside {
 }
 
 .card {
-    background-image: linear-gradient(135deg,green,white);
     padding: 20px;
-    border-radius: 12px;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    position: relative;
+    transition: var(--main-transition-dur);
 }
-
+.card::before,
+.card::after{
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 0;
+    background-color: var(--maincolor);
+    transition: var(--main-transition-dur);
+}
+.card::before{
+    bottom: 0;
+    right: 0;
+}
+.card::after{
+    left: 0;
+    top: 0;
+    
+}
+.card:hover::before,
+.card:hover::after{
+    height: 100%;
+}
 .card:hover {
-    background-image: linear-gradient(135deg,white,green);
     cursor: pointer;
     transform: scale(1.1);
 }
@@ -203,7 +220,6 @@ aside {
 
 .attendance {
     background: white;
-    /* width: 320px; */
     padding: 20px;
     border-radius: 16px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);

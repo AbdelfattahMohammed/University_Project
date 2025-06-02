@@ -40,12 +40,12 @@
     <div class="main-content">
         <div class="aside">
             <div class="sidebar">
-                <a href="{{ route('overview') }}">
-                    <i class="fas fa-th-large"></i>
+            <a href="{{ route('overview') }}">
+                <i class="fa-solid fa-house"></i>
                     <h3>overview</h3>
                 </a>
                 <a href="{{ route('department.index') }}">
-                    <i class="fa-solid fa-table-cells-large"></i>
+                <i class="fa-solid fa-database"></i>
                     <h3>departments</h3>
                 </a>
                 <a href="{{ route('courses.index') }}">
@@ -60,7 +60,10 @@
                     <i class="fas fa-chalkboard-teacher"></i>
                     <h3>instructor</h3>
                 </a>
-
+                <a href="{{ route('tables') }}">
+                <i class="fa-solid fa-table"></i>
+                    <h3>tables</h3>
+                </a>
                 <a href="{{ route('attendance.index') }}" class="active">
                     <i class="fa-solid fa-clipboard-user"></i>
                     <h3>attendance</h3>
@@ -81,31 +84,25 @@
                 <button class="b" onclick="history.back()">Back</button>
             </div>
             <div class="card-container" >
-                <div style="display: flex; justify-content: space-between; margin: 50px 0 100px 0; ">
-                    <div class="card">
-                        <a href="{{ route('attendance.l1') }}">
-                            <h2>Level-1</h2>
-                        </a>
-                    </div>
-                    <div class="card" style="margin-left: 200px; ">
-                        <a href="{{ route('attendance.l2') }}">
-                            <h2>Level-2</h2>
-                        </a>
-                    </div>
+                <div class="card">
+                    <a href="{{ route('attendance.l1') }}">
+                        <h2>Level-1</h2>
+                    </a>
                 </div>
-                <div style="display: flex;">
-                    <div class="card">
-                        <a href="{{ route('attendance.l3') }}">
-                            <h2>Level-3</h2>
-                        </a>
-
-                    </div>
-                    <div class="card" style="margin-left: 200px; ">
-                        <a href="{{ route('attendance.l4') }}">
-                            <h2>Level-4</h2>
-                        </a>
-
-                    </div>
+                <div class="card" >
+                    <a href="{{ route('attendance.l2') }}">
+                        <h2>Level-2</h2>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="{{ route('attendance.l3') }}">
+                        <h2>Level-3</h2>
+                    </a>
+                </div>
+                <div class="card" >
+                    <a href="{{ route('attendance.l4') }}">
+                        <h2>Level-4</h2>
+                    </a>
                 </div>
             </div>
         </div>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\TableController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FinancialController;
@@ -78,11 +79,20 @@ Route::get('/attendanceLev3', [AttendanceController::class, 'getAttendanceLev3']
 Route::get('/attendanceLev4', [AttendanceController::class, 'getAttendanceLev4']);
 
 
+
 Route::get('/attendanceRate', [AttendanceController::class, 'getAttendanceRate']);
 
 
 
 
+Route::get('/table', [CourseController::class, 'table'])->name('tables');
+Route::get('/table/assistant', [TableController::class, 'assistant'])->name('assistant');
+Route::get('/table/doctor', [TableController::class, 'doctor'])->name('doctor');
+Route::get('/table/room', [TableController::class, 'room'])->name('room');
+Route::get('/table/timeTable', [TableController::class, 'timeTable'])->name('timeTable');
+Route::get('/table/doctor/docName', [TableController::class, 'docName'])->name('docName');
+Route::get('/table/doctor/classroom', [TableController::class, 'classroom'])->name('classroom');
+Route::get('/table/doctor/timetable/l1', [TableController::class, 'l1'])->name('l1');
 
 
 
@@ -128,7 +138,9 @@ Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'
 
 
 
-
+Route::get('/table/tt/ss', function () {
+    return view('tables');
+});
 
 // Route::get('/test', function () {
 //     $user = new User();

@@ -1,11 +1,11 @@
+body {
+    scroll-behavior: smooth;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-body {
-    scroll-behavior: smooth;
 }
 
 :root {
@@ -120,17 +120,16 @@ body {
     color: #333;
     padding-right: 53px;
     transition: background-color 0.3s;
-    /* Smooth hover effect */
 }
 
 .sidebar a:hover {
     background-color: #f0f0f0;
-    color: #007bff;
+    color: var(--maincolor);
 }
 
 .sidebar a.active {
     background-color: #e0e0e0;
-    color: #007bff;
+    color: var(--maincolor);
 }
 
 .sidebar a i {
@@ -139,10 +138,6 @@ body {
     text-align: center;
 }
 
-/* body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-} */
 .holder {
     padding: 20px;
     flex: 1;
@@ -161,6 +156,55 @@ body {
 .holder .header h1 {
     font-size: 30px;
     color: #27ae60;
+    text-transform: capitalize;
+}
+
+.card-container {
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.card-container,
+.card,
+a {
+    text-decoration: none;
+
+}
+
+.card {
+    padding: 30px;
+    box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+    border-radius: 6px;
+    transition: transform var(--main-transition-dur), box-shadow var(--main-transition-dur);
+    text-align: center;
+    transition: var(--main-transition-dur);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:hover {
+    transform: scale(1, 1.1) translateX(-10px);
+    cursor: pointer;
+    background-color: var(--maincolor);
+    color: white;
+}
+
+.card:hover h2 {
+    color: white;
+}
+
+.card h2 {
+    font-size: 30px;
+    color: var(--maincolor);
+    transition: var(--main-transition-dur)
+}
+
+.card .highlight {
+    font-weight: bold;
+    color: #27ae60;
 }
 
 .holder .header button {
@@ -170,44 +214,4 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.filter-container {
-    display: flex;
-    gap: 20px;
-    width: fit-content;
-}
-
-.filter-container button {
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-}
-
-table {
-    width: 80%;
-    margin: 20px auto;
-    border-collapse: collapse;
-}
-
-th,
-td {
-    border: 1px solid black;
-    padding: 10px;
-    text-align: left;
-}
-
-th {
-    background-color: #007bff;
-    color: white;
-}
-
-.filter-container {
-    margin: 20px;
-}
-
-canvas {
-    max-width: 600px;
-    margin: 20px auto;
 }

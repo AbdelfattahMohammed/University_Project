@@ -1,12 +1,20 @@
 body {
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-    margin: 0;
-  }
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --maincolor: #2196f3;
+  --maincolor-alt: #1787e0;
+  --main-padding: 100px;
+  --main-transition-dur: 0.3s;
+  --section-color: #ececec;
+}
 
   /* --------------------------- */
   .main-header {
@@ -56,27 +64,24 @@ body {
     position: relative;
   }
 
-  .main-header .form input {
-    border-radius: 20px;
-    width: 300px;
-    height: 30px;
-    padding: 8px;
-    border: 1px solid black;
-  }
+.main-header .form input {
+  width: 300px;
+  height: 30px;
+  padding: 8px;
+  border: 1px solid black;
+  outline: none;
+}
 
-  .main-header .form button {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    padding: 8px 20px;
-    transform: translateY(-50%);
-    background-color: #4497f1;
-    border: none;
-    width: 35px;
-    border-radius: 50%;
-    height: 100%;
-    cursor: pointer;
-  }
+.main-header .form button {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--maincolor);
+  width: 35px;
+  height: 100%;
+  border: 1px solid black;
+}
 
   .main-header .form button i {
     display: flex;
@@ -154,19 +159,18 @@ body {
   .holder .header h1 {
     font-size: 30px;
     color: #27ae60;
-
-
-  }
-
-  button {
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    text-transform: capitalize;
 
   }
+
+    .holder .header button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
   /* روابط تحت بعض بتنسيق جميل */
   .links {

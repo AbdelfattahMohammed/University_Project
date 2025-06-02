@@ -11,7 +11,7 @@ class CourseController extends Controller
     {
         return view('course');
     }
-
+    
     public function semester1()
     {
         return view('index');
@@ -21,7 +21,7 @@ class CourseController extends Controller
     {
         return view('levels sem2');
     }
-
+    
     public function semester1level1()
     {
         $courses = Course::where('course_level', 1)
@@ -44,7 +44,7 @@ class CourseController extends Controller
 
         return view('level2', compact('courses'));
     }
-
+    
     public function semester1level3()
     {
         $courses = Course::where('course_level', 3)
@@ -77,20 +77,20 @@ class CourseController extends Controller
 
         return view('semster2l1', compact('courses'));
     }
-
+    
     public function semester2level2()
     {
         $courses = Course::where('course_level', 2)
-                        ->where('term', 2)
+        ->where('term', 2)
                         ->with('instructors')
                         ->get()
                         ->groupBy('department_id');
-
-        return view('semster2l2', compact('courses'));
-    }
-
-    public function semester2level3()
-    {
+                        
+                        return view('semster2l2', compact('courses'));
+                    }
+                    
+                    public function semester2level3()
+                    {
         $courses = Course::where('course_level', 3)
                         ->where('term', 2)
                         ->with('instructors')
@@ -99,15 +99,19 @@ class CourseController extends Controller
 
         return view('semster2l3', compact('courses'));
     }
-
+    
     public function semester2level4()
     {
         $courses = Course::where('course_level', 4)
-                        ->where('term', 2)
-                        ->with('instructors')
-                        ->get()
-                        ->groupBy('department_id');
-
+        ->where('term', 2)
+        ->with('instructors')
+        ->get()
+        ->groupBy('department_id');
+        
         return view('semster2l4', compact('courses'));
+    }
+    public function table()
+    {
+        return view('Tables.tables');
     }
 }

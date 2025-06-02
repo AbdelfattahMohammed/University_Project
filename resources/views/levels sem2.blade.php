@@ -262,14 +262,14 @@ a {
 }
 
 
-    button {
-      padding: 10px 20px;
-      background-color: #4caf50;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+.holder .header button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
   </style>
 </head>
 
@@ -299,14 +299,14 @@ a {
   <div class="main-content">
     <div class="aside">
         <div class="sidebar">
-            <a href="{{ route('overview') }}">
-                <i class="fas fa-th-large"></i>
-                <h3>overview</h3>
-            </a>
-            <a href="{{ route('department.index') }}">
-                <i class="fa-solid fa-table-cells-large"></i>
-                <h3>departments</h3>
-            </a>
+        <a href="{{ route('overview') }}">
+                <i class="fa-solid fa-house"></i>
+                    <h3>overview</h3>
+                </a>
+                <a href="{{ route('department.index') }}">
+                <i class="fa-solid fa-database"></i>
+                    <h3>departments</h3>
+                </a>
             <a href="{{ route('courses.index') }}" class="active">
                 <i class="fas fa-book-open"></i>
                 <h3>Courses</h3>
@@ -319,6 +319,11 @@ a {
                 <i class="fas fa-chalkboard-teacher"></i>
                 <h3>instructor</h3>
             </a>
+
+            <a href="{{ route('tables') }}">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>tables</h3>
+                </a>
 
             <a href="{{ route('attendance.index') }}">
                 <i class="fa-solid fa-clipboard-user"></i>

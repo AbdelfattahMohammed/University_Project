@@ -10,7 +10,7 @@ integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1c
 crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ url('/css/all_min.css')}}">
     <link rel="stylesheet" href="{{ url('/css/normalize.css')}}">
-    <link rel="stylesheet" href="{{ url('/css/L2_attendence.css')}}">
+    <link rel="stylesheet" href="{{ url('/css/L1_attendence.css')}}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>L1-Attendence Page</title>
 
@@ -42,13 +42,13 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
     <div class="main-content">
         <div class="aside">
             <div class="sidebar">
-                <a  href="{{ route('overview') }}">
-                    <i class="fas fa-th-large" ></i>
+            <a href="{{ route('overview') }}">
+                <i class="fa-solid fa-house"></i>
                     <h3>overview</h3>
                 </a>
                 <a href="{{ route('department.index') }}">
-                    <i class="fa-solid fa-table-cells-large"></i>
-                    <h3 >departments</h3>
+                <i class="fa-solid fa-database"></i>
+                    <h3>departments</h3>
                 </a>
                 <a href="{{ route('courses.index') }}">
                     <i class="fas fa-book-open"></i>
@@ -60,7 +60,12 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                 </a>
                 <a href="{{ route('instructor') }}">
                     <i class="fas fa-chalkboard-teacher"></i>
-                    <h3 >instructor</h3>
+                    <h3>instructor</h3>
+                </a>
+                
+                <a href="{{ route('tables') }}">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>tables</h3>
                 </a>
 
                 <a href="{{ route('attendance.index') }}" class="active">

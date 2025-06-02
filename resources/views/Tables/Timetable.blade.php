@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{url('css/all.min.css')}}">
-    <link rel="stylesheet" href="{{url('css/normalize.css')}}">
-    <link rel="stylesheet" href="{{url('css/lev2_student.css')}}">
-    <title>Departments Page</title>
+    <link rel="stylesheet" href="{{ url('/css/all_min.css')}}">
+    <link rel="stylesheet" href="{{ url('/css/normalize.css')}}">
+    <link rel="stylesheet" href="{{ url('/css/Timetable.css')}}">
+    <title>tables</title>
+
 </head>
+
 <body>
     <div class="main-header">
-        <div class="logo"><img src="{{url ('images/smart dashboard Logo 4.png') }}" alt="">
+        <div class="logo"><img src="{{ asset('images/smart dashboard Logo 4.png') }}" alt="">
             <div class="text">
-                <p><span>smart</span>
+                <p ><span>smart</span>
                     <span>dashboard</span>
                 </p>
             </div>
@@ -30,14 +32,15 @@
                 </button>
             </form>
         </div>
+
         <div class="fac-img">
-            <img src="{{url ('images/collegue logo.jpg') }}">
+            <img src="{{ asset('images/collegue logo.jpg') }}">
         </div>
     </div>
     <div class="main-content">
         <div class="aside">
             <div class="sidebar">
-            <a href="{{ route('overview') }}">
+                <a href="{{ route('overview') }}">
                 <i class="fa-solid fa-house"></i>
                     <h3>overview</h3>
                 </a>
@@ -49,7 +52,7 @@
                     <i class="fas fa-book-open"></i>
                     <h3>Courses</h3>
                 </a>
-                <a href="{{ route('student.index') }}" class="active">
+                <a href="{{ route('student.index') }}" >
                     <i class="fas fa-user-graduate"></i>
                     <h3>Students</h3>
                 </a>
@@ -57,9 +60,9 @@
                     <i class="fas fa-chalkboard-teacher"></i>
                     <h3>instructor</h3>
                 </a>
-
-                <a href="{{ route('tables') }}">
-                    <i class="fas fa-chalkboard-teacher"></i>
+                
+                <a href="{{route('tables')}}" class="active">
+                <i class="fa-solid fa-table"></i>
                     <h3>tables</h3>
                 </a>
 
@@ -75,35 +78,38 @@
                     <i class="fa-solid fa-calendar-days"></i>
                     <h3>event</h3>
                 </a>
-        </div>
-    </div>
-
-    <div class="holder">
-        <div class="header">
-          <h1>Student</h1>
-          <button class="b" onclick="history.back()">Back</button>
-        </div>
-   <!-- ------------------------------------- -->
-<!-- IS Section -->
-<div class="container">
-
-    @foreach($departments as $department)
-        <section class="department mb-4">
-            <h2 class="text-white">{{ $department->department_name }} Department</h2>
-            <div class="students d-flex flex-wrap">
-                @forelse($department->students as $student)
-                    <div class="student card p-3 m-2 shadow-sm" style="width: 200px;">
-                        <strong>{{ $student->name }}</strong><br>
-                        <span class="text-muted">GPA: {{ $student->gpa }}</span>
-                    </div>
-                @empty
-                    <p class="text-danger">No students in this department.</p>
-                @endforelse
             </div>
-        </section>
-    @endforeach
-</div>
+        </div>
+        <div class="holder">
+            <div class="header">
+                <h1>Timetable</h1>
+                <button class="b" onclick="history.back()">Back</button>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <a href="{{ route('l1') }}">
+                        <h2>Level-1</h2>
+                    </a>
+                </div>
+                <div class="card">
+                <a href="{{ route('l1') }}">
+                        <h2>Level-2</h2>
+                    </a>
+                </div>
+                <div class="card">
+                <a href="{{ route('l1') }}">
+                        <h2>Level-3</h2>
+                    </a>
+                </div>
+                <div class="card">
+                <a href="{{ route('l1') }}">
+                        <h2>Level-4</h2>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
+
 
 </html>

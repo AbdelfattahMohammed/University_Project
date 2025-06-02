@@ -15,7 +15,14 @@ body {
     --main-transition-dur: 0.3s;
     --section-color: #ececec;
 }
+ul,
+li {
+    list-style: none;
+}
 
+a {
+    text-decoration: none;
+}
 .main-header {
     position: relative;
     box-shadow: 0px -10px 17px black;
@@ -73,6 +80,7 @@ body {
     width: 35px;
     height: 100%;
     border: 1px solid black;
+    border-radius: none;
 }
 
 .main-header .form button:hover {
@@ -85,6 +93,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: black;
 }
 
 .main-header .fac-img img {
@@ -120,7 +129,6 @@ body {
     color: #333;
     padding-right: 53px;
     transition: background-color 0.3s;
-    /* Smooth hover effect */
 }
 
 .sidebar a:hover {
@@ -130,7 +138,7 @@ body {
 
 .sidebar a.active {
     background-color: #e0e0e0;
-    color: #007bff;
+    color: var(--maincolor);
 }
 
 .sidebar a i {
@@ -138,11 +146,6 @@ body {
     width: 20px;
     text-align: center;
 }
-
-/* body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-} */
 .holder {
     padding: 20px;
     flex: 1;
@@ -172,42 +175,46 @@ body {
     cursor: pointer;
 }
 
-.filter-container {
-    display: flex;
-    gap: 20px;
-    width: fit-content;
+.container .levels-ul{
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+    font-size: 20px;
 }
 
-.filter-container button {
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-}
-
-table {
-    width: 80%;
-    margin: 20px auto;
-    border-collapse: collapse;
-}
-
-th,
-td {
+.container .levels-ul .li-levels{
     border: 1px solid black;
-    padding: 10px;
-    text-align: left;
-}
-
-th {
-    background-color: #007bff;
+    background-color: var(--maincolor);
     color: white;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 5px;
 }
-
-.filter-container {
-    margin: 20px;
+.container .levels-ul .li-levels ul{
+    border-top: 1px solid black;
+    background-color: white;
+    font-weight: normal;
 }
-
-canvas {
-    max-width: 600px;
-    margin: 20px auto;
+.container .levels-ul .li-levels ul li{
+    padding: 10px;
+    transition: var(--main-transition-dur);
+}
+.container .levels-ul .li-levels ul li a{
+    transition: var(--main-transition-dur);
+}
+.container .levels-ul .li-levels ul li:hover{
+    background-color: var(--maincolor)
+}
+.container .levels-ul .li-levels ul li:hover a{
+    color: white;
+    font-weight: bold;
+    transform: scale(1.01);
+    
+}
+.container .levels-ul .li-levels ul li:last-child{
+    border-top: 1px solid black;
+}
+.container .levels-ul .li-levels ul li a{
+    color: black;    
 }

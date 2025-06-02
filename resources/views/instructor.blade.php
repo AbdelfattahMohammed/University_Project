@@ -33,19 +33,19 @@
             </form>
         </div>
         <div class="fac-img">
-            <img src="{{url ('/images/smart dashboard Logo 4.png') }}">
+            <img src="{{url ('images/collegue logo.jpg') }}">
         </div>
     </div>
 
     <div class="main-content">
         <div class="aside">
             <div class="sidebar">
-                <a href="{{ route('overview') }}">
-                    <i class="fas fa-th-large"></i>
+            <a href="{{ route('overview') }}">
+                <i class="fa-solid fa-house"></i>
                     <h3>overview</h3>
                 </a>
                 <a href="{{ route('department.index') }}">
-                    <i class="fa-solid fa-table-cells-large"></i>
+                <i class="fa-solid fa-database"></i>
                     <h3>departments</h3>
                 </a>
                 <a href="{{ route('courses.index') }}">
@@ -60,7 +60,10 @@
                     <i class="fas fa-chalkboard-teacher"></i>
                     <h3>instructor</h3>
                 </a>
-
+                <a href="{{ route('tables') }}">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>tables</h3>
+                </a>
                 <a href="{{ route('attendance.index') }}">
                     <i class="fa-solid fa-clipboard-user"></i>
                     <h3>attendance</h3>
@@ -85,7 +88,7 @@
                     <div class="image">
                         <img src="{{url ('/images/cs.jpg') }}" alt="" style="height: 90px;">
                         <div class="name">
-                            <span>CS</span>
+                            <span>(CS)</span>
                             <a href="{{ route('instructor.cs') }}">
                                 <h2>Computer Science</h2>
                             </a>
@@ -99,7 +102,7 @@
                     <div class="image">
                         <img src="{{url ('/images/is.webp') }}" alt="">
                         <div class="name">
-                            <span>IS</span>
+                            <span>(IS)</span>
                             <a href="{{ route('instructor.is') }}">
                                 <h2>Information Systems</h2>
                             </a>
@@ -111,7 +114,7 @@
                     <div class="image">
                         <img src="{{url ('/images/ai.jpg') }}" alt="">
                         <div class="name">
-                            <span>AI</span>
+                            <span>(AI)</span>
                             <a href="{{ route('instructor.ai') }}">
                                 <h2>Artificial Intelligence</h2>
                             </a>
@@ -124,10 +127,10 @@
                         <img src="{{url ('/images/bio.jpg') }}" alt="">
                         <div class="name">
                             <span>
-                                BIO
+                                (BIO)
                             </span>
                             <a href="{{ route('instructor.bio') }}">
-                                <h2 style=" margin-left: 70px;">Bioinformatics</h2>
+                                <h2 >Bioinformatics</h2>
                             </a>
                         </div>
                     </div>
