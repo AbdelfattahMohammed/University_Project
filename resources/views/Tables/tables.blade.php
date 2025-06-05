@@ -106,7 +106,9 @@
                         <h2>Timetable</h2>
                     </a>
                 </div>
-                
+            </div>
+            <div class="create-table">
+                <a href="{{ route('create_table') }}">create timetable</a>
             </div>
         </div>
     </div>

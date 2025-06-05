@@ -141,7 +141,6 @@ body {
 .holder {
     padding: 20px;
     flex: 1;
-    position: relative;
 }
 
 .holder .header {
@@ -160,67 +159,8 @@ body {
     text-transform: capitalize;
 }
 
-.card-container {
-    padding-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 40px;
-}
 
-.card-container,
-.card,
-a {
-    text-decoration: none;
 
-}
-
-.card {
-    padding: 30px;
-    box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
-    border-radius: 6px;
-    transition: transform var(--main-transition-dur), box-shadow var(--main-transition-dur);
-    text-align: center;
-    transition: var(--main-transition-dur);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.card:hover {
-    transform: scale(1, 1.1) translateX(-10px);
-    cursor: pointer;
-    background-color: var(--maincolor);
-    color: white;
-}
-
-.card:hover h2 {
-    color: white;
-}
-
-.card h2 {
-    font-size: 30px;
-    color: var(--maincolor);
-    transition: var(--main-transition-dur)
-}
-
-.card .highlight {
-    font-weight: bold;
-    color: #27ae60;
-}
-.create-table{
-    position: absolute;
-    right: 20px;
-    bottom:100px;
-}
-.create-table a{
-    display: block;
-    background-color: var(--maincolor);
-    color: white;
-    padding: 15px 20px;
-    font-size: 22px;
-    font-weight: bold;
-
-}
 .holder .header button {
     padding: 10px 20px;
     background-color: #4caf50;
@@ -228,4 +168,65 @@ a {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+/*  */
+table {
+    border-collapse: collapse;
+    /* border: 2px solid black; */
+        width: 100%;
+        text-align: center;
+}
+table * {
+    padding: 5px;
+    border: 1px solid black;
+}
+th,
+td {
+    border: 1px solid #444;
+    padding: 8px;
+    vertical-align: top;
+    text-align: center;
+}
+
+.days-header {
+    font-weight: bold;
+    font-size: 18px;
+}
+th {
+    background-color: #eee;
+}
+.lev-select{
+    display: block;
+    margin-bottom: 10px;
+}
+select {
+    margin: 2px 0;
+}
+
+.btn {
+    margin: 10px 5px 0 0;
+    padding: 8px 15px;
+    cursor: pointer;
+    width: fit-content;
+    border-radius: 5px;
+    color: white;
+}
+#saveBtn{
+    background-color: #4dcc82;
+    color: black;
+}
+#saveBtn:hover{
+    background-color: #6ed698;
+}
+#printBtn{
+    background-color: var(--maincolor);
+}
+#printBtn:hover{
+    background-color: var(--maincolor-alt);
+}
+.container {
+    /* max-width: 900px; */
+    margin: auto;
+    /* padding: 20px; */
 }

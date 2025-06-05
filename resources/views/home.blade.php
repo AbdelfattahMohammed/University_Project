@@ -39,7 +39,7 @@
     <div class="content">
         <div class="aside">
             <div class="sidebar">
-            <a href="{{ route('overview') }}">
+            <a href="{{ route('overview') }}" class="active">
                 <i class="fa-solid fa-house"></i>
                     <h3>overview</h3>
                 </a>

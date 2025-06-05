@@ -90,6 +90,9 @@ Route::get('/table/assistant', [TableController::class, 'assistant'])->name('ass
 Route::get('/table/doctor', [TableController::class, 'doctor'])->name('doctor');
 Route::get('/table/room', [TableController::class, 'room'])->name('room');
 Route::get('/table/timeTable', [TableController::class, 'timeTable'])->name('timeTable');
+
+Route::get('/table/create_table', [TableController::class, 'create_table'])->name('create_table');
+
 Route::get('/table/doctor/docName', [TableController::class, 'docName'])->name('docName');
 Route::get('/table/doctor/classroom', [TableController::class, 'classroom'])->name('classroom');
 Route::get('/table/doctor/timetable/l1', [TableController::class, 'l1'])->name('l1');
@@ -141,6 +144,12 @@ Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'
 Route::get('/table/tt/ss', function () {
     return view('tables');
 });
+
+
+Route::get('/create_table', function () {
+    return view('Tables.create_table'); 
+})->name('create_table');
+
 
 // Route::get('/test', function () {
 //     $user = new User();
