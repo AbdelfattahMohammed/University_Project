@@ -60,7 +60,7 @@
                     <i class="fas fa-chalkboard-teacher"></i>
                     <h3>instructor</h3>
                 </a>
-                
+
                 <a href="{{route('tables')}}" class="active">
                 <i class="fa-solid fa-table"></i>
                     <h3>tables</h3>
@@ -102,13 +102,13 @@
                     </a>
                 </div>
                 <div class="card">
-                    <a href="{{ route('timeTable') }}">
+                    <a href="{{ route('timetables.select_year') }}">
                         <h2>Timetable</h2>
                     </a>
                 </div>
             </div>
             <div class="create-table">
-                <a href="{{ route('create_table') }}">create timetable</a>
+                <a href="{{ route('timetable.index') }}">create timetable</a>
             </div>
         </div>
     </div>

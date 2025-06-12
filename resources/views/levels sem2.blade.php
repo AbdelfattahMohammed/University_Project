@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="ar">
 
 <head>
@@ -376,4 +376,4 @@ a {
     </div>
 </body>
 
-</html>
+</html> --}}

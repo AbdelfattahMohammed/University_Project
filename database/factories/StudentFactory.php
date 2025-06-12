@@ -2,23 +2,71 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Student;
 use App\Models\Department;
-use App\Models\Course;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Factory as Faker;
 
 class StudentFactory extends Factory
 {
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
     protected $model = Student::class;
 
-    public function definition()
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
     {
+        $faker = Faker::create('ar_EG');
+
+        $departmentIds = Department::pluck('id')->toArray();
+
+        if (empty($departmentIds)) {
+            $departmentIds = ['CS', 'IS', 'AI', 'BIO'];
+        }
+
+        $gender = $faker->randomElement(['Male', 'Female']);
+
+        // توليد اسم بدون ألقاب: نستخدم firstName و lastName
+        // ثم ندمجهما.
+        if ($gender === 'Male') {
+            $firstName = $faker->firstNameMale();
+            $lastName = $faker->lastName();
+            $name = $firstName . ' ' . $lastName;
+        } else {
+            $firstName = $faker->firstNameFemale();
+            $lastName = $faker->lastName();
+            $name = $firstName . ' ' . $lastName;
+        }
+
+        $phone = '01' . $faker->randomElement(['0', '1', '2', '5']) . $faker->unique()->numerify('########');
+
+        $universityYear = $faker->numberBetween(1, 4);
+
+        $address = $faker->address();
+
+        // **تعديل الحضور والغياب:**
+        // توليد الحضور بشكل عشوائي بين 0 و 100
+        $attendance = $faker->numberBetween(0, 100);
+        // الغياب هو المكمل للحضور حتى 100
+        $absence = 100 - $attendance;
+
         return [
-            'enroll_year' => $this->faker->year(),
-            'gpa' => $this->faker->randomFloat(2, 0, 4), // GPA between 0.00 - 4.00
-            'attendance_rate' => $this->faker->randomFloat(2, 50, 100), // Attendance between 50% - 100%
-            'department_id' => Department::inRandomOrder()->first()->department_id ?? Department::factory(),
-            'course_id' => Course::inRandomOrder()->first()->course_id ?? Course::factory(),
+            'name' => $name, // استخدام الاسم الذي تم توليده بدون ألقاب
+            'gender' => $gender,
+            'year' => $universityYear,
+            'department_id' => $faker->randomElement($departmentIds),
+            'gpa' => $faker->randomFloat(2, 2.0, 4.0),
+            'attendance' => $attendance, // قيمة حضور عشوائية
+            'absence' => $absence,       // قيمة غياب مكملة لها
+            'address' => $address,
+            'phone' => $phone,
         ];
     }
 }

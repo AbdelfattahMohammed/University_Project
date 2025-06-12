@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -60,7 +60,7 @@
                     <i class="fas fa-chalkboard-teacher"></i>
                     <h3>instructor</h3>
                 </a>
-                
+
                 <a href="{{route('tables')}}" class="active">
                 <i class="fa-solid fa-table"></i>
                     <h3>tables</h3>
@@ -85,7 +85,7 @@
                 <h1>Classrooms </h1>
                 <button class="b" onclick="history.back()">Back</button>
             </div>
-            
+
             <table class="table">
             <thead class="roooms">
                 <tr>
@@ -174,4 +174,4 @@
 </body>
 
 
-</html>
+</html> --}}

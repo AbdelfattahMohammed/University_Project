@@ -11,17 +11,11 @@ class StudentSeeder extends Seeder
 {
     public function run()
     {
-        // Ensure departments and courses exist before seeding students
-        if (Department::count() == 0) {
-            Department::factory()->count(5)->create();
+       if (Department::count() === 0) {
+            $this->call(DepartmentSeeder::class);
         }
 
-        if (Course::count() == 0) {
-            Course::factory()->count(10)->create();
-        }
-
-        // Create 50 students
-        Student::factory()->count(50)->create();
+        Student::factory()->count(2000)->create();
     }
 }
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -60,7 +60,7 @@
                     <i class="fas fa-chalkboard-teacher"></i>
                     <h3>instructor</h3>
                 </a>
-                
+
                 <a href="{{route('tables')}}" class="active">
                 <i class="fa-solid fa-table"></i>
                     <h3>tables</h3>
@@ -89,14 +89,18 @@
 
             <div class="name-container">
                 <ul>
-                    <li><a href="{{route('docName')}}">Prof.Dr ibrahem sleem</a></li>
-                    <li><a href="">Dr. saras shehab</a></li>
-                    <li><a href="">Prof.Dr Tarek mostafa</a></li>
+                    @foreach ($Ass as $assistant)
+                        <li>
+                            <a href="{{ route('docName', ['id' => $assistant->id]) }}">
+                                {{ $assistant->full_name }}
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
-            </div>
+            </div>>
         </div>
     </div>
 </body>
 
 
-</html>
+</html> --}}

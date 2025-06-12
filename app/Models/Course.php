@@ -9,15 +9,27 @@ class Course extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['course_name', 'course_level', 'department_id', 'term'];
+    protected $fillable = ['course_name', 'course_level', 'term'];
 
-    public function department()
+    public function departments()
     {
-        return $this->belongsTo(Department::class);
+        return $this->belongsToMany(Department::class, 'course_department', 'course_id', 'department_id')
+            ->withPivot('year');
     }
 
     public function instructors()
     {
-        return $this->hasMany(Instructor::class);
+        return $this->belongsToMany(Instructor::class, 'course_instructor_assignments', 'course_id', 'instructor_id')
+            ->withPivot('role');
+    }
+
+    public function timetables()
+    {
+        return $this->hasMany(Timetable::class);
+    }
+
+    public function schedules()
+    {
+        return $this->hasMany(CourseSchedule::class);
     }
 }

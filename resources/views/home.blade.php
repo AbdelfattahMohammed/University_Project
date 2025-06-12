@@ -39,12 +39,12 @@
     <div class="content">
         <div class="aside">
             <div class="sidebar">
-            <a href="{{ route('overview') }}" class="active">
-                <i class="fa-solid fa-house"></i>
+                <a href="{{ route('overview') }}" class="active">
+                    <i class="fa-solid fa-house"></i>
                     <h3>overview</h3>
                 </a>
                 <a href="{{ route('department.index') }}">
-                <i class="fa-solid fa-database"></i>
+                    <i class="fa-solid fa-database"></i>
                     <h3>departments</h3>
                 </a>
                 <a href="{{ route('courses.index') }}">
@@ -77,6 +77,15 @@
                     <i class="fa-solid fa-calendar-days"></i>
                     <h3>event</h3>
                 </a>
+
+                {{-- هنا هنضيف زرار تسجيل الخروج --}}
+                <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                    @csrf
+                    <a href="#" onclick="event.preventDefault(); this.closest('form').submit();">
+                        <i class="fa-solid fa-right-from-bracket"></i> {{-- أيقونة لتسجيل الخروج --}}
+                        <h3>تسجيل خروج</h3>
+                    </a>
+                </form>
             </div>
         </div>
 
@@ -96,35 +105,25 @@
                 </div>
                 <div class="card">
                     <h3>Faculty Rooms</h3>
-                    <p>04</p>
+                    <p>{{ $rooms }}</p>
                 </div>
             </div>
             <div class="attendance">
                 <div class="card-header">
                     <h2>Attendance Rate</h2>
-                    <span class="attendance-rate">87% <small style="color: #4caf50">+5.25%</small></span>
+                    {{-- These values will be updated by JS --}}
+                    <span class="attendance-rate">Loading...</span>
                 </div>
                 <p>Average attendance over the last 5 months</p>
-                <div class="date-label">May 27</div>
+                {{-- This label will be updated by JS --}}
+                <div class="date-label"></div>
                 <div class="chart-container">
                     <svg class="chart" viewBox="0 0 300 160">
-                        <polyline points="0,20 50,100 100,70 150,90 200,30 250,10 300,10 350,50 400,10"
-                            class="chart-line" />
+                        {{-- Polyline points will be set by JS --}}
+                        <polyline points="" class="chart-line" />
                     </svg>
                     <div class="chart-labels">
-                        <span></span>
-                        <span>January</span>
-                        <span>February</span>
-                        <span>March</span>
-                        <span>April</span>
-                        <span>May</span>
-                        <span>June</span>
-                        <span>July</span>
-                        <span>August</span>
-                        <span>September</span>
-                        <span>October</span>
-                        <span>November</span>
-                        <span>December</span>
+                        {{-- Labels will be set by JS --}}
                     </div>
                 </div>
             </div>
@@ -143,7 +142,6 @@
         </div>
 
     </div>
-
 
     <script>
         const monthYear = document.getElementById("month-year");
@@ -196,68 +194,98 @@
         }
 
         renderCalendar();
-
     </script>
 
 
-<script>
-    function fetchAttendanceData() {
-        fetch("/attendanceRate")
-            .then(response => response.json())
-            .then(data => {
-                console.log("Fetched Data:", data); // Debugging
+    <script>
+        function fetchAttendanceData() {
+            fetch("/attendance-rate")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Fetched Data:", data); // Debugging
 
-                // Update the attendance rate percentage
-                document.querySelector(".attendance-rate").innerHTML = `
-                    ${data.overallRate}%
-                    <small style="color: ${data.change >= 0 ? '#4caf50' : '#f44336'}">
-                        ${data.change >= 0 ? '+' : ''}${data.change}%
-                    </small>
-                `;
+                    // Update the attendance rate percentage
+                    document.querySelector(".attendance-rate").innerHTML = `
+                        ${data.overallRate}%
+                        <small style="color: ${data.change >= 0 ? '#4caf50' : '#f44336'}">
+                            ${data.change >= 0 ? '+' : ''}${data.change}%
+                        </small>
+                    `;
 
-                // Update the latest month label
-                document.querySelector(".date-label").textContent = data.monthlyRates[4].month;
+                    // Update the latest month label - assuming last element is the most recent
+                    if (data.monthlyRates && data.monthlyRates.length > 0) {
+                        document.querySelector(".date-label").textContent = data.monthlyRates[data.monthlyRates.length - 1].month;
+                    }
 
-                // Update the chart dynamically
-                updateChart(data.monthlyRates);
-            })
-            .catch(error => {
-                console.error("Error fetching attendance data:", error);
+
+                    // Update the chart dynamically
+                    updateChart(data.monthlyRates);
+                })
+                .catch(error => {
+                    console.error("Error fetching attendance data:", error);
+                    document.querySelector(".attendance-rate").innerHTML = `<span style="color:red;">Error loading data</span>`;
+                    document.querySelector(".date-label").textContent = `N/A`;
+                    // You might want to clear or show an error state for the SVG chart as well
+                });
+        }
+
+        function updateChart(monthlyRates) {
+            const svgElement = document.querySelector(".chart");
+            const polylineElement = document.querySelector(".chart-line");
+            const labelsContainer = document.querySelector(".chart-labels");
+
+            if (!monthlyRates || monthlyRates.length === 0) {
+                // Clear the chart if no data
+                polylineElement.setAttribute("points", "");
+                labelsContainer.innerHTML = "";
+                return;
+            }
+
+            const viewBox = svgElement.getAttribute('viewBox').split(' ').map(Number);
+            const svgWidth = viewBox[2]; // width
+            const svgHeight = viewBox[3]; // height
+
+            const maxRate = 100; // Attendance percentage is out of 100
+            const numPoints = monthlyRates.length;
+
+            // Calculate x-axis spacing based on the number of points
+            // Divide by (numPoints - 1) to ensure the last point hits the end of the SVG
+            const xSpacing = numPoints > 1 ? svgWidth / (numPoints - 1) : 0;
+
+            // Generate points for the line chart dynamically
+            const points = monthlyRates.map((data, index) => {
+                const x = index * xSpacing;
+                // Scale Y-axis: 0% at bottom (svgHeight), 100% at top (0)
+                const y = svgHeight - (data.rate / maxRate) * svgHeight;
+                return `${x},${y}`;
+            }).join(" ");
+
+            // Update polyline points
+            polylineElement.setAttribute("points", points);
+
+            // Update month labels dynamically
+            labelsContainer.innerHTML = ""; // Clear old labels
+            monthlyRates.forEach((data, index) => {
+                const span = document.createElement("span");
+                span.textContent = data.month;
+                // Optional: set position for labels if needed for more precise alignment
+                // For example, if you want them centered under each point:
+                // const xPos = index * xSpacing;
+                // span.style.position = 'absolute';
+                // span.style.left = `${xPos}px`;
+                // span.style.transform = 'translateX(-50%)'; // Center the label
+                labelsContainer.appendChild(span);
             });
-    }
+        }
 
-    function updateChart(monthlyRates) {
-        const maxRate = 100; // Maximum attendance percentage
-        const svgWidth = 300; // Chart width
-        const svgHeight = 150; // Chart height
-        const numPoints = monthlyRates.length; // Number of months
-
-        // Calculate x-axis spacing
-        const xSpacing = svgWidth / (numPoints - 1);
-
-        // Generate points for the line chart dynamically
-        const points = monthlyRates.map((data, index) => {
-            const x = index * xSpacing;
-            const y = svgHeight - (data.rate / maxRate) * svgHeight; // Scale based on max rate
-            return `${x},${y}`;
-        }).join(" ");
-
-        // Update polyline points
-        document.querySelector(".chart-line").setAttribute("points", points);
-
-        // Update month labels dynamically
-        const labels = document.querySelector(".chart-labels");
-        labels.innerHTML = ""; // Clear old labels
-        monthlyRates.forEach((data) => {
-            const span = document.createElement("span");
-            span.textContent = data.month;
-            labels.appendChild(span);
-        });
-    }
-
-    // Fetch data on page load
-    document.addEventListener("DOMContentLoaded", fetchAttendanceData);
-</script>
+        // Fetch data on page load
+        document.addEventListener("DOMContentLoaded", fetchAttendanceData);
+    </script>
 
 
 

@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ url('/css/all_min.css')}}">
-    <link rel="stylesheet" href="{{ url('/css/normalize.css')}}">
-    <link rel="stylesheet" href="{{ url('/css/Timetable.css')}}">
+    <link rel="stylesheet" href="{{ url('/css/all_min.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/Timetable.css') }}">
     <title>tables</title>
 
 </head>
@@ -18,7 +18,7 @@
     <div class="main-header">
         <div class="logo"><img src="{{ asset('images/smart dashboard Logo 4.png') }}" alt="">
             <div class="text">
-                <p ><span>smart</span>
+                <p><span>smart</span>
                     <span>dashboard</span>
                 </p>
             </div>
@@ -41,18 +41,18 @@
         <div class="aside">
             <div class="sidebar">
                 <a href="{{ route('overview') }}">
-                <i class="fa-solid fa-house"></i>
+                    <i class="fa-solid fa-house"></i>
                     <h3>overview</h3>
                 </a>
                 <a href="{{ route('department.index') }}">
-                <i class="fa-solid fa-database"></i>
+                    <i class="fa-solid fa-database"></i>
                     <h3>departments</h3>
                 </a>
                 <a href="{{ route('courses.index') }}">
                     <i class="fas fa-book-open"></i>
                     <h3>Courses</h3>
                 </a>
-                <a href="{{ route('student.index') }}" >
+                <a href="{{ route('student.index') }}">
                     <i class="fas fa-user-graduate"></i>
                     <h3>Students</h3>
                 </a>
@@ -60,9 +60,9 @@
                     <i class="fas fa-chalkboard-teacher"></i>
                     <h3>instructor</h3>
                 </a>
-                
-                <a href="{{route('tables')}}" class="active">
-                <i class="fa-solid fa-table"></i>
+
+                <a href="{{ route('tables') }}" class="active">
+                    <i class="fa-solid fa-table"></i>
                     <h3>tables</h3>
                 </a>
 
@@ -86,26 +86,13 @@
                 <button class="b" onclick="history.back()">Back</button>
             </div>
             <div class="card-container">
-                <div class="card">
-                    <a href="{{ route('l1') }}">
-                        <h2>Level-1</h2>
-                    </a>
-                </div>
-                <div class="card">
-                <a href="{{ route('l1') }}">
-                        <h2>Level-2</h2>
-                    </a>
-                </div>
-                <div class="card">
-                <a href="{{ route('l1') }}">
-                        <h2>Level-3</h2>
-                    </a>
-                </div>
-                <div class="card">
-                <a href="{{ route('l1') }}">
-                        <h2>Level-4</h2>
-                    </a>
-                </div>
+                @foreach ($years as $year)
+                    <div class="card">
+                        <a href="{{ route('timetables.year_overview', ['year' => $year]) }}">
+                            <h2>Level {{ $year }}</h2>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

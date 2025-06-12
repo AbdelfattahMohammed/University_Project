@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('department_name');
             $table->string('head_of_department');
-            $table->integer('no_of_students')->default(0);
-            $table->integer('no_of_instructors')->default(0);
             $table->timestamps();
         });
     }

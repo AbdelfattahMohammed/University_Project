@@ -192,7 +192,7 @@ aside {
 .card::after{
     left: 0;
     top: 0;
-    
+
 }
 .card:hover::before,
 .card:hover::after{
@@ -340,4 +340,74 @@ aside {
     background-color: var(--maincolor-alt);
     color: white;
     font-weight: bold;
+}
+
+
+/*
+* في ملف الـ CSS بتاعك (مثلاً home.css)
+* تأكد إنك بتضيف الأكواد دي في مكان مناسب،
+* يفضل بعد تنسيقات الـ .sidebar a
+*/
+
+/* تنسيقات خاصة بزرار تسجيل الخروج في الـ sidebar */
+.sidebar .logout-link {
+    /*
+    * Display block عشان الفورم ياخد سطر لوحده ويسمح بالتحكم في عرضه
+    * وميبقاش display: inline; اللي ممكن يسبب مشاكل في التنسيق
+    */
+    display: block;
+    width: 100%; /* عشان ياخد عرض الـ sidebar بالكامل */
+    /*
+    * margin-top عشان تفصل زرار تسجيل الخروج عن اللينكات اللي فوقه
+    * ممكن تعدل القيمة حسب ما يناسب تصميمك
+    */
+    margin-top: 20px;
+    /*
+    * لو حبيت تدي الفورم نفسه خلفية مختلفة أو أي border
+    * background-color: #f8d7da;
+    * border-left: 5px solid #dc3545;
+    */
+}
+
+/* تنسيق اللينك داخل الفورم عشان ياخد نفس شكل باقي اللينكات في الـ sidebar */
+.sidebar .logout-link a {
+    display: flex; /* عشان الأيقونة والنص يبقوا جنب بعض */
+    align-items: center; /* للمحاذاة الرأسية */
+    gap: 10px; /* المسافة بين الأيقونة والنص */
+    padding: 20px 10px; /* نفس البادينج بتاع اللينكات التانية في الـ sidebar a */
+    text-decoration: none; /* إزالة الخط اللي تحت اللينك */
+    color: #333; /* لون النص، ممكن تخليه أحمر مثلاً #dc3545 عشان يبرز إنه logout */
+    transition: background-color 0.3s, color 0.3s; /* تأثير انتقال ناعم */
+    border-radius: 5px; /* حواف دائرية لو حبيت */
+}
+
+/* تنسيق أيقونة تسجيل الخروج */
+.sidebar .logout-link a i {
+    margin-right: 10px; /* نفس المارجن بتاع أيقونات اللينكات التانية */
+    width: 20px; /* نفس عرض أيقونات اللينكات التانية */
+    text-align: center; /* توسيط الأيقونة */
+    font-size: 20px; /* حجم الأيقونة */
+}
+
+/* تنسيق النص (h3) داخل اللينك */
+.sidebar .logout-link a h3 {
+    margin: 0; /* إزالة المارجن الافتراضي للـ h3 عشان ميعملش مسافات زيادة */
+    font-size: 16px; /* حجم الخط */
+    font-weight: normal; /* لو عايز الخط مش تخين زي باقي الـ h3 */
+}
+
+/* تأثير الـ hover على زرار تسجيل الخروج */
+.sidebar .logout-link a:hover {
+    background-color: #e0e0e0; /* لون خلفية عند الـ hover، ممكن تخليه لون مختلف زي #fdd */
+    color: #dc3545; /* لون أحمر عند الـ hover عشان يبرز إنه logout */
+}
+
+/* تعديل بسيط على تنسيق الـ sidebar نفسه عشان المساحات تكون متناسقة */
+.sidebar {
+    padding: 10px 0; /* تأكيد أن البادينج الأفقي صفر عشان اللينكات تاخد عرض كامل */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* المسافة بين العناصر (اللينكات) */
+    box-shadow: -4px -4px 13px black;
 }

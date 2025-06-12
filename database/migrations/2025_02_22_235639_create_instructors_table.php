@@ -15,12 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('full_name');
             $table->unsignedBigInteger('department_id');
-            $table->unsignedBigInteger('course_id');
+            $table->string('position')->default('Assistant');
             $table->string('work_days');
             $table->timestamps();
 
             $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
         });
     }
 
