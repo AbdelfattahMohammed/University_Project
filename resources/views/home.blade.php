@@ -78,14 +78,6 @@
                     <h3>event</h3>
                 </a>
 
-                {{-- هنا هنضيف زرار تسجيل الخروج --}}
-                <form method="POST" action="{{ route('logout') }}" style="display: inline;">
-                    @csrf
-                    <a href="#" onclick="event.preventDefault(); this.closest('form').submit();">
-                        <i class="fa-solid fa-right-from-bracket"></i> {{-- أيقونة لتسجيل الخروج --}}
-                        <h3>تسجيل خروج</h3>
-                    </a>
-                </form>
             </div>
         </div>
 
@@ -138,6 +130,16 @@
                     </div>
                     <div class="days" id="calendar-days"></div>
                 </div>
+            </div>
+            <div class="logout">
+                    {{-- هنا هنضيف زرار تسجيل الخروج --}}
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a href="#" onclick="event.preventDefault(); this.closest('form').submit();">
+                            <!-- <i class="fa-solid fa-right-from-bracket"></i> {{-- أيقونة لتسجيل الخروج --}} -->
+                            <h3>log out</h3>
+                        </a>
+                    </form>
             </div>
         </div>
 

@@ -14,6 +14,7 @@
     <style>
         body {
             scroll-behavior: smooth;
+            font-family: 'Times New Roman', Times, serif;
         }
 
         * {
@@ -137,59 +138,70 @@
             justify-content: center;
         }
 
-        .sidebar {
-            padding: 10px 0;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 10PX;
-            box-shadow: -4PX -4PX 13PX black;
-        }
+        aside {
+    height: 100%;
+    background-color: #fff;
+    /* White sidebar */
+    padding: 1rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 
-        .sidebar a {
-            text-transform: capitalize;
-            display: flex;
-            align-items: center;
-            padding: 20px 10PX;
-            text-decoration: none;
-            color: #333;
-            padding-right: 53px;
-            transition: background-color 0.3s;
-            /* Smooth hover effect */
-        }
+    /* Subtle shadow */
+}
 
-        .sidebar a:hover {
-            background-color: #f0f0f0;
-            color: #007bff;
-        }
 
-        .sidebar a.active {
-            background-color: #e0e0e0;
-            /* Slightly darker for active */
-            color: #007bff;
-            /* Blue for active text */
-        }
+.sidebar {
+    padding: 10px 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10PX;
+    box-shadow: -4PX -4PX 13PX black;
+    
+}
 
-        .sidebar a i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
+.sidebar a {
+    text-transform: capitalize;
+    display: flex;
+    align-items: center !important;
+    padding: 20px 10PX;
+    text-decoration: none;
+    color: #333;
+    padding-right: 53px;
+    transition: background-color 0.3s;
+}
 
-        /* .sidebar h3 {
+.sidebar a:hover {
+    background-color: #f0f0f0;
+    color: var(--maincolor);
+}
+
+.sidebar a.active {
+    background-color: #e0e0e0;
+    color: var(--maincolor);
+}
+
+.sidebar a i {
+    margin-top:-16px;
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+.sidebar h3 {
+    
     margin-top: -8px;
     font-size: 18px;
     font-weight: bold;
-} */
+}
 
         .holder {
+            /* flex-grow: 1; */
             padding: 20px;
             flex: 1;
         }
 
         .holder .header {
             background: #ecf0f1;
-            padding: 0px 10px;
+            padding: 10px;
             border-bottom: 2px solid #bdc3c7;
             margin-bottom: 20px;
             display: flex;
@@ -198,9 +210,11 @@
         }
 
         .holder .header h1 {
+            text-transform: capitalize;
+        font-weight: bold;
             font-size: 30px;
             color: #27ae60;
-            text-transform: capitalize;
+            margin:0;
         }
 
 

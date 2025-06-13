@@ -29,6 +29,13 @@ Route::get('/', function () {
     return view('login');
 });
 
+Route::get('/test', function () {
+    $user = new User();
+    $user->name = 'Abdelfattah Mohammed';
+    $user->email = 'arg24680@gmail.com';
+    $user->password = bcrypt('12345678');
+    $user->save();
+});
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
@@ -124,13 +131,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/timetables/manage/{year}/{department_id}', [TimetableController::class, 'manageTimetableGrid'])->name('timetables.manage_grid');
 
     // Test Routes (لو محتاجهم للتجربة بس، يفضل تمسحهم في الـ production)
-    // Route::get('/test', function () {
-    //     $user = new User();
-    //     $user->name = 'Abdelfattah Mohammed';
-    //     $user->email = 'arg24680@gmail.com';
-    //     $user->password = bcrypt('12345678');
-    //     $user->save();
-    // });
+    
     // Route::get('/test-email', function () {
     //     Mail::raw('This is a test email', function ($message) {
     //         $message->to('ba9329711@gmail.com')->subject('Test Email');

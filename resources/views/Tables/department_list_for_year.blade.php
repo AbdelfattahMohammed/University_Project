@@ -15,47 +15,58 @@
     <style>
         /* إضافة بعض الأنماط الأساسية لمواءمة التصميم الجديد مع القديم */
         body {
-            font-family: 'Arial', sans-serif; /* استخدم خطًا أكثر شيوعًا إذا لم يكن لديك 'Segoe UI' */
-            background-color: #f4f7f6;
+            scroll-behavior: smooth;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column; /* لجعل المحتوى يتدفق عمودياً */
+        }
+
+        :root {
+            --maincolor: #2196f3;
+            --maincolor-alt: #1787e0;
+            --main-padding: 100px;
+            --main-transition-dur: 0.3s;
+            --section-color: #ececec;
         }
         .main-content {
+            overflow: hidden;
+            min-height: 100vh;
+            background-color: #f9f9f9;
             display: flex;
             flex-grow: 1; /* لجعل المحتوى يأخذ المساحة المتبقية */
         }
         .holder {
-            flex-grow: 1;
+            /* flex-grow: 1; */
             padding: 20px;
-            background-color: #fff;
-            margin: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            flex:1;
         }
-        .header {
+        .holder .header {
+            background: #ecf0f1;
+            padding: 10px;
+            border-bottom: 2px solid #bdc3c7;
+            margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
         }
-        .header h1 {
-            font-size: 2.2rem;
-            color: #333;
-            margin: 0;
+        .holder .header h1 {
+            text-transform: capitalize;
+    font-weight: bold;
+            font-size: 30px;
+            color: #27ae60;
+            margin:0;
         }
-        .b {
-            background-color: #007bff;
-            color: white;
+        .holder .header button {
             padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .b:hover {
-            background-color: #0056b3;
         }
 
         .department-section {

@@ -92,9 +92,6 @@ body {
     justify-content: center;
 }
 
-/* .header .fac-img{
-    padding: 5px;
-} */
 .header .fac-img img {
     max-width: 100%;
     height: 60px;
@@ -279,6 +276,7 @@ aside {
 
 /* Calendar Styling */
 .right-side {
+    position: relative;
     height: 100%;
     background-color: #fff;
     /* White sidebar */
@@ -341,7 +339,30 @@ aside {
     color: white;
     font-weight: bold;
 }
-
+.logout{
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    padding: 10px 30px;
+    text-align: center;
+    
+}
+.logout form{
+    background-color: var(--maincolor);
+    width: 100%;
+    border-radius: 5px;
+    transition: var(--main-transition-dur);
+}
+.logout form:hover{
+    background-color: #074da9;
+}
+.logout form a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    text-transform: capitalize;
+    padding: 10px 15px;
+}
 
 /*
 * في ملف الـ CSS بتاعك (مثلاً home.css)

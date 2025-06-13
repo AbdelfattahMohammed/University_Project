@@ -16,6 +16,7 @@
     <style>
         body {
             scroll-behavior: smooth;
+            font-family: 'Times New Roman', Times, serif;
         }
 
         * {
@@ -162,16 +163,17 @@
         }
 
         .sidebar a i {
+            margin-top:-16px;
             margin-right: 10px;
             width: 20px;
             text-align: center;
         }
 
-        /* .sidebar h3 {
+        .sidebar h3 {
     margin-top: -8px;
     font-size: 18px;
     font-weight: bold;
-} */
+}
 
         .holder {
             /* flex-grow: 1; */
@@ -190,6 +192,8 @@
         }
 
         .holder .header h1 {
+            text-transform: capitalize;
+    font-weight: bold;
             font-size: 30px;
             color: #27ae60;
         }

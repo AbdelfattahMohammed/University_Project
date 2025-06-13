@@ -4,16 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Level 1 Subjects</title>
     <style>
         body {
             scroll-behavior: smooth;
+            font-family: 'Times New Roman', Times, serif;
         }
 
         * {
@@ -127,49 +129,47 @@
         }
 
         .sidebar {
-            padding: 10px 0;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 10PX;
-            box-shadow: -4PX -4PX 13PX black;
-        }
+    padding: 10px 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10PX;
+    box-shadow: -4PX -4PX 13PX black;
+    
+}
 
-        .sidebar a {
-            text-transform: capitalize;
-            display: flex;
-            align-items: center;
-            padding: 20px 10PX;
-            text-decoration: none;
-            color: #333;
-            padding-right: 53px;
-            transition: background-color 0.3s;
-            /* Smooth hover effect */
-        }
+.sidebar a {
+    text-transform: capitalize;
+    display: flex;
+    align-items: center !important;
+    padding: 20px 10PX;
+    text-decoration: none;
+    color: #333;
+    padding-right: 53px;
+    transition: background-color 0.3s;
+}
 
-        .sidebar a:hover {
-            background-color: #f0f0f0;
-            color: #007bff;
-        }
+.sidebar a:hover {
+    background-color: #f0f0f0;
+    color: var(--maincolor);
+}
 
-        .sidebar a.active {
-            background-color: #e0e0e0;
-            /* Slightly darker for active */
-            color: #007bff;
-            /* Blue for active text */
-        }
+.sidebar a.active {
+    background-color: #e0e0e0;
+    color: var(--maincolor);
+}
 
-        .sidebar a i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-
-        /* .sidebar h3 {
+.sidebar a i {
+    margin-top:-16px;
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+.sidebar h3 {
     margin-top: -8px;
     font-size: 18px;
     font-weight: bold;
-} */
+}
 
         .holder {
             /* flex-grow: 1; */
@@ -188,6 +188,8 @@
         }
 
         .holder .header h1 {
+            text-transform: capitalize;
+    font-weight: bold;
             font-size: 30px;
             color: #27ae60;
         }
