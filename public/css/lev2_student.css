@@ -148,15 +148,6 @@ body {
     flex: 1;
 }
 
-/* .holder .header {
-    background: #ecf0f1;
-    padding: 10px;
-    border-bottom: 2px solid #bdc3c7;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
 .holder .header {
     background: #ecf0f1;
 padding: 0px 10px;
@@ -196,10 +187,10 @@ align-items: center;
   }
 
   .department h2 {
-    background-color: green;
+    background-color: var(--maincolor);
     color: white;
     width: 500px;
-    margin-left: 200px;
+    margin: 20px auto;
     padding: 10px;
     border-radius: 8px;
     text-align: center;
@@ -226,7 +217,7 @@ align-items: center;
   .student:hover {
     transform: translateY(-5px);
     color: black;
-    background-image: linear-gradient(135deg,green,white) ;
+    background-color: #86c1ff;
   }
 
   .student span {
